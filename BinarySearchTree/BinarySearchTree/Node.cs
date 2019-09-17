@@ -10,15 +10,15 @@ namespace BinarySearchTree
     {
         // member variables
         public int id;
-        public Node rightLink;
-        public Node leftLink;
+        public Node left;
+        public Node right;
 
         // constructor
         public Node(int id)
         {
             this.id = id;
-            rightLink = null;
-            leftLink = null;
+            left = null;
+            right = null;
         }
 
         // member methods

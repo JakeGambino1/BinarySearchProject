@@ -8,35 +8,44 @@ namespace BinarySearchTree
 {
     public class LinkedList
     {
-        // member variables
-        Node root;
-
-        // constructor
-
-        // member methods
+        public Node root;
         public void Add(int id)
         {
-            Node node = new Node(id);
             if (root == null)
             {
-                root = node;
+                root = new Node(id);
                 return;
             }
-            Node temporaryRightNode = root;
-
-            while (temporaryRightNode.rightLink != null)
-            {
-                temporaryRightNode = temporaryRightNode.rightLink;
-            }
-            temporaryRightNode.rightLink = node;
-
-            Node temporaryLeftNode = root;
-            while (temporaryLeftNode.leftLink != null)
-            {
-                temporaryLeftNode = temporaryLeftNode.leftLink;
-            }
-            temporaryLeftNode.leftLink = node;
+            PositionNode(root, new Node(id));
         }
+
+        public void PositionNode(Node root, Node tempNode)
+        {
+            if (tempNode.id > root.id)
+            {
+                if(tempNode.right == null)
+                {
+                    root.right = tempNode;
+                }
+                else
+                {
+                    PositionNode(root.right, tempNode);
+                }
+            }
+
+            if (tempNode.id < root.id)
+            {
+                if (tempNode.left == null)
+                { 
+                    root.left = tempNode;
+                }
+                else
+                {
+                    PositionNode(root.left, tempNode);
+                }
+            }
+        }
+
         public Node Search(Node node, int id)
         {
             if (node.id == id)
@@ -46,17 +55,18 @@ namespace BinarySearchTree
 
             else if (id > node.id)
             {
-                if (node.rightLink != null) {
-                    return Search(node.rightLink, id);
+                if (node.right != null)
+                {
+                    return Search(node.right, id);
                 }
                 return null;
             }
 
             else if (id < node.id)
             {
-                if (node.leftLink != null)
+                if (node.left != null)
                 {
-                    return Search(node.leftLink, id);
+                    return Search(node.left, id);
                 }
                 return null;
             }
