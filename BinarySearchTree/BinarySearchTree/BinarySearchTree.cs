@@ -56,20 +56,52 @@ namespace BinarySearchTree
             {
                 if (searchNode.right == null)
                 {
+                    Console.WriteLine($"{id} not found");
                     return null;
                 }
                 searchNode = searchNode.right;
-                return Search(id);
+                return Search(id, searchNode);
             }
             else if (id < searchNode.id)
             {
                 if (searchNode.left == null)
                 {
+                    Console.WriteLine($"{id} not found");
                     return null;
                 }
                 searchNode = searchNode.left;
-                return Search(id);
+                return Search(id, searchNode);
             }
+            return null;
+        }
+        public Node Search(int id, Node node)
+        {
+            if (id == node.id)
+            {
+                Console.WriteLine($"{node.id} was found");
+                return node;
+            }
+            else if (id > node.id)
+            {
+                if (node.right == null)
+                {
+                    Console.WriteLine($"{id} not found");
+                    return null;
+                }
+                node = node.right;
+                return Search(id, node);
+            }
+            else if (id < node.id)
+            {
+                if (node.left == null)
+                {
+                    Console.WriteLine($"{id} not found");
+                    return null;
+                }
+                node = node.left;
+                return Search(id, node);
+            }
+            Console.WriteLine("Node not found");
             return null;
         }
     }

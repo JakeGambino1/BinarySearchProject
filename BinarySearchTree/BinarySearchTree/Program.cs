@@ -24,12 +24,12 @@ namespace BinarySearchTree
             Console.WriteLine($"Root {binarySearchTree.root.id}");
             Console.WriteLine($"Root > {binarySearchTree.root.right.id}");
             Console.WriteLine($"Root > > {binarySearchTree.root.right.right.id}");
-            Console.ReadLine();
             Console.WriteLine($"< Root {binarySearchTree.root.left.id}");
             Console.WriteLine($"< < Root {binarySearchTree.root.left.left.id}");
-            Console.ReadLine();
 
             Node searchResultNode = binarySearchTree.Search(35);
+            Console.ReadLine();
+            searchResultNode = binarySearchTree.Search(12);
             Console.ReadLine();
         }
     }
