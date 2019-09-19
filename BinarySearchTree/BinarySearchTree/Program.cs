@@ -10,29 +10,27 @@ namespace BinarySearchTree
     {
         static void Main(string[] args)
         {
-            LinkedList linkedList = new LinkedList();
-            linkedList.Add(30);
-            linkedList.Add(25);
-            linkedList.Add(35);
-            linkedList.Add(53);
-            linkedList.Add(58);
-            linkedList.Add(15);
-            linkedList.Add(32);
-            linkedList.Add(61);
-            linkedList.Add(99);
+            BinarySearchTree binarySearchTree = new BinarySearchTree();
+            binarySearchTree.Add(30);
+            binarySearchTree.Add(25);
+            binarySearchTree.Add(35);
+            binarySearchTree.Add(53);
+            binarySearchTree.Add(58);
+            binarySearchTree.Add(15);
+            binarySearchTree.Add(32);
+            binarySearchTree.Add(61);
+            binarySearchTree.Add(99);
 
-            Console.WriteLine($"Root {linkedList.root.id}");
+            Console.WriteLine($"Root {binarySearchTree.root.id}");
+            Console.WriteLine($"Root > {binarySearchTree.root.right.id}");
+            Console.WriteLine($"Root > > {binarySearchTree.root.right.right.id}");
             Console.ReadLine();
-            Console.WriteLine($"Root > {linkedList.root.right.id}");
-            Console.ReadLine();
-            Console.WriteLine($"< Root {linkedList.root.left.id}");
-            Console.ReadLine();
-            Console.WriteLine($"< < Root {linkedList.root.left.left.id}");
-            Console.ReadLine();
-            Console.WriteLine($"Root > > {linkedList.root.right.right.id}");
+            Console.WriteLine($"< Root {binarySearchTree.root.left.id}");
+            Console.WriteLine($"< < Root {binarySearchTree.root.left.left.id}");
             Console.ReadLine();
 
-
+            Node searchResultNode = binarySearchTree.Search(35);
+            Console.ReadLine();
         }
     }
 }
